@@ -28,6 +28,22 @@ public class LinkedBST<T extends Comparable<T>> {
             add(root, aData);
     }
 
+    public void printPreorder() {
+        printPreorder(root);
+    }
+
+    public void printInorder() {
+        printInorder(root);
+    }
+
+    public boolean search(T aData) {
+        return search(root, aData);
+    }
+
+    public void remove(T aData) {
+        root = remove(root, aData);
+    }
+
     private Node add(Node aNode, T aData)// recursive method
     {
         if (aNode == null)// we found a leaf
@@ -39,10 +55,6 @@ public class LinkedBST<T extends Comparable<T>> {
         return aNode;
     }
 
-    public void printPreorder() {
-        printPreorder(root);
-    }
-
     private void printPreorder(Node aNode) {
         if (aNode == null)
             return;
@@ -51,20 +63,12 @@ public class LinkedBST<T extends Comparable<T>> {
         printPreorder(aNode.rightChild);// RIGHT
     }
 
-    public void printInorder() {
-        printInorder(root);
-    }
-
     private void printInorder(Node aNode) {
         if (aNode == null)
             return;
         printInorder(aNode.leftChild);// LEFT
         System.out.println(aNode.data);// Process
         printInorder(aNode.rightChild);// RIGHT
-    }
-
-    public boolean search(T aData) {
-        return search(root, aData);
     }
 
     private boolean search(Node aNode, T aData) {
@@ -76,10 +80,6 @@ public class LinkedBST<T extends Comparable<T>> {
             return search(aNode.rightChild, aData);
         else
             return true;
-    }
-
-    public void remove(T aData) {
-        root = remove(root, aData);
     }
 
     private Node remove(Node aNode, T aData) {
